@@ -1,0 +1,147 @@
+/* swiper */
+.swiper {
+    width: clamp(65rem, 65vw, 78rem);
+    height: 43.1rem;
+    border-radius: 0 0 0 9px;
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+    right: -78rem;
+    margin: 0;
+}
+.swiper-slide {
+    min-width: 100%;
+    width: auto;    
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    display: block;
+    position: relative;
+}
+.slide {
+    background-size: cover;
+    background-position: center center;
+    object-fit: cover;
+    position: sticky;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    width: auto;
+    height: 100%;
+    visibility: visible;
+}
+.slide img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.top .swiper-slide .slide01 {
+    background-image: url(../img/slide01.svg);
+}
+.top .swiper-slide .slide02 {
+    background-image: url(../img/slide02.svg);
+}
+.top .swiper-slide .slide03 {
+    background-image: url(../img/slide03.svg);
+}
+.top .swiper-slide .slide04 {
+    background-image: url(../img/slide04.svg);
+}
+.top .swiper-slide .slide05 {
+    background-image: url(../img/slide05.svg);
+}
+.top .swiper-slide .slide06 {
+    background-image: url(../img/slide06.svg);
+}
+
+@keyframes zoom {
+    from{
+        transform: scale(1.15);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+.add-animation{
+    animation: zoom 8s linear 0s normal both;
+}
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 52px;
+    top: auto;
+}
+.swiper-pagination-current {
+    margin-bottom: 30px;
+    position: absolute;
+    left: 3px;
+    /* display: none; */
+}
+.swiper-pagination-total {
+    margin-bottom: 30px;
+    position: absolute;
+    left: 190px;
+    /* display: none; */
+}
+/* ==========================
+  fractionのカスタマイズ
+========================== */
+.swiper-pagination-fraction {
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 1;
+    margin-left: clamp(2.05rem, 0.05rem + 2vw, 2.45rem);
+}
+/* ==========================
+  ラインアニメーションをCSSで表現
+========================== */
+.swiper-pagination-fraction .border {
+    height: 5px;
+    width: 12.5rem;
+    margin: 0;
+    background-color: rgba(222, 225, 227, .5);
+    position: relative;
+    overflow: hidden;
+    /* display: none; */
+}
+
+.swiper-pagination-fraction .border span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(-100%);
+    transform-origin: left center;
+    transition-timing-function: linear;
+}
+.swiper-pagination-fraction .border::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transform: translateX(100%);
+    transform-origin: left center;
+    transition-timing-function: linear;
+}
+
+.swiper-pagination.is-active .border span {
+    animation: slideInRight 7.5s forwards;
+}
+.swiper-pagination.is-active .border::after {
+    animation: slideRight 1.5s forwards;
+}
